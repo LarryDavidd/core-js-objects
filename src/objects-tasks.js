@@ -33,16 +33,16 @@ function shallowCopy(obj) {
  *    mergeObjects([{a: 1, b: 2}, {b: 3, c: 5}]) => {a: 1, b: 5, c: 5}
  *    mergeObjects([]) => {}
  */
-function mergeObjects(objects) {
-  // throw new Error('Not implemented');
-  const set = new Set();
-  objects.forEach((obj) => set.add(Object.entries(obj).join('-')));
-  const res = {};
-  set.forEach((strObj) => {
-    const { objKey, objValue } = strObj.split('-');
-    if (objKey) res[objKey] = objValue;
-  });
-  return res;
+function mergeObjects(/* objects */) {
+  throw new Error('Not implemented');
+  // const set = new Set();
+  // objects.forEach((obj) => set.add(Object.entries(obj).join('-')));
+  // const res = {};
+  // set.forEach((strObj) => {
+  //   const { objKey, objValue } = strObj.split('-');
+  //   if (objKey) res[objKey] = objValue;
+  // });
+  // return res;
 }
 
 /**
@@ -58,8 +58,12 @@ function mergeObjects(objects) {
  *    removeProperties({name: 'John', age: 30, city: 'New York'}, 'age') => {name: 'John', city: 'New York'}
  *
  */
-function removeProperties(/* obj, keys */) {
-  throw new Error('Not implemented');
+function removeProperties(obj, keys) {
+  const copyObj = obj;
+  keys.forEach((key) => {
+    delete copyObj[key];
+  });
+  return obj;
 }
 
 /**
