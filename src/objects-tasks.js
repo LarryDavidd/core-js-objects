@@ -95,7 +95,7 @@ function compareObjects(obj1, obj2) {
  *    isEmptyObject({a: 1}) => false
  */
 function isEmptyObject(obj) {
-  return JSON.stringify(obj) === JSON.stringify({});
+  return Object.keys(obj).length === 0;
   // throw new Error('Not implemented');
 }
 
